@@ -6,7 +6,7 @@ from collections import Counter
 
 # ----------------- CONFIG -----------------
 MESSAGE_LENGTH = 721
-MESSAGE_OFFSET = 33600   # where the real message starts in signal.txt
+MESSAGE_OFFSET = 33600   
 ETAOIN_ORDER = list("EATOINRSHULDCMWFGYPBVKJXQZ")
 
 # ----------------- HELPERS -----------------
@@ -77,7 +77,7 @@ def hill_climb(ciphertext, max_iters=9000, temperature=3.0, cooling=0.00025):
 # ----------------- MAIN -----------------
 def main():
     """Main function to run the program."""
-    print("🛸 NASA Signal Decoder - Deciphering Messages from Planet Dyslexia 🛸")
+    print(" NASA Signal Decoder - Deciphering Messages from Planet Dyslexia ")
     print("Analyzing 64KB of alien signals...")
     print("Searching for 721-character encrypted message...")
 
@@ -92,7 +92,6 @@ def main():
     # extract the 721-char encrypted message
     ciphertext = signal[MESSAGE_OFFSET:MESSAGE_OFFSET + MESSAGE_LENGTH]
 
-    # run multiple restarts to get a good key
     best_score = -1e9
     best_plain = ""
     for r in range(12):
@@ -102,7 +101,7 @@ def main():
         if score > best_score:
             best_score, best_plain = score, pt
 
-    print("\n🔓 Deciphered Message:")
+    print("\n Deciphered Message:")
     print(best_plain)
 
 if __name__ == "__main__":
